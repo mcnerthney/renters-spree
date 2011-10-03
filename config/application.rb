@@ -11,6 +11,15 @@ end
 
 module Rentstore
   class Application < Rails::Application
+    config.middleware.use "SeoAssist"
+    config.middleware.use "RedirectLegacyProductUrl"
+
+    config.to_prepare do
+      Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
