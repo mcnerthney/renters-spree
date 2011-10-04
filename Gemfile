@@ -7,7 +7,7 @@ gem 'rails', '3.1.1.rc2'
 
 gem 'sqlite3'
 
-gem 'spree', :git => 'git://github.com/spree/spree.git'
+gem 'spree', :path => '../../spree'
 
 
 
@@ -38,4 +38,4 @@ group :test do
   gem 'turn', :require => false
 end
 
-gem 'spree_blue_theme', :git => 'git://github.com/spree/spree_blue_theme.git'
+gem 'spree_blue_theme', :path => '../../spree/spree_blue_theme'

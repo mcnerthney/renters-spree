@@ -1,0 +1,11 @@
+<div id="footer" class="cantainer">
+<div align="center">
+	<nav class="round">
+		<ul>
+			<li> <%= link_to "About", '#'  %></li>
+			<li> <%= link_to "Contact", '#' %></li>	
+			<li> <%= link_to "Soft LLC", "http://www.softllc.com", :target => '_blank' %>	</li>
+         </ul>
+</nav>
+
+<%= debug(params) if Rails.env.test? %>
