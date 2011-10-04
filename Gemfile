@@ -7,9 +7,9 @@ gem 'rails', '3.1.1.rc2'
 
 gem 'sqlite3'
 
-gem 'spree', :path => '../../spree'
+gem 'therubyracer'
 
-
+gem 'spree', :git => 'git://github.com/spree/spree.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,4 +38,4 @@ group :test do
   gem 'turn', :require => false
 end
 
-gem 'spree_blue_theme', :path => '../../spree/spree_blue_theme'
+gem 'spree_blue_theme', :git => 'git://github.com/spree/spree_blue_theme.git'

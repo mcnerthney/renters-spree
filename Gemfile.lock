@@ -1,16 +1,48 @@
-PATH
-  remote: ../../spree
+GIT
+  remote: git://github.com/spree/spree.git
+  revision: 59419cf5b8e11141452c33e8ee5b053ef591eb23
   specs:
-    spree (0.70.0.djm)
-      spree_api (= 0.70.0.djm)
-      spree_auth (= 0.70.0.djm)
-      spree_core (= 0.70.0.djm)
-      spree_dash (= 0.70.0.djm)
-      spree_promo (= 0.70.0.djm)
-      spree_sample (= 0.70.0.djm)
+    spree (0.70.0.rc2)
+      spree_api (= 0.70.0.rc2)
+      spree_auth (= 0.70.0.rc2)
+      spree_core (= 0.70.0.rc2)
+      spree_dash (= 0.70.0.rc2)
+      spree_promo (= 0.70.0.rc2)
+      spree_sample (= 0.70.0.rc2)
+    spree_api (0.70.0.rc2)
+      spree_auth (= 0.70.0.rc2)
+      spree_core (= 0.70.0.rc2)
+    spree_auth (0.70.0.rc2)
+      cancan (= 1.6.5)
+      devise (= 1.4.7)
+      spree_core (= 0.70.0.rc2)
+    spree_core (0.70.0.rc2)
+      activemerchant (= 1.17.0)
+      acts_as_list (= 0.1.4)
+      deface (>= 0.6.1)
+      faker (= 1.0.0)
+      highline (= 1.5.1)
+      jquery-rails (>= 1.0.14)
+      kaminari (>= 0.12.4)
+      meta_search (= 1.1.1)
+      nested_set (= 1.6.8)
+      paperclip (= 2.4.1)
+      rails (= 3.1.1.rc2)
+      rd_find_by_param (= 0.1.1)
+      rd_resource_controller
+      state_machine (= 1.0.1)
+      stringex (= 1.0.3)
+    spree_dash (0.70.0.rc2)
+      spree_core (= 0.70.0.rc2)
+    spree_promo (0.70.0.rc2)
+      spree_auth (= 0.70.0.rc2)
+      spree_core (= 0.70.0.rc2)
+    spree_sample (0.70.0.rc2)
+      spree_core (= 0.70.0.rc2)
 
-PATH
-  remote: ../../spree/spree_blue_theme
+GIT
+  remote: git://github.com/spree/spree_blue_theme.git
+  revision: d1e95e7b01799d03f1fdd8efc8f30047f50efedd
   specs:
     spree_blue_theme (0.1.0)
 
@@ -87,6 +119,7 @@ GEM
     json (1.6.1)
     kaminari (0.12.4)
       rails (>= 3.0.0)
+    libv8 (3.3.10.2)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -148,36 +181,6 @@ GEM
       sass (>= 3.1.4)
       sprockets (~> 2.0.0)
       tilt (~> 1.3.2)
-    spree_api (0.70.0.djm)
-      spree_auth (= 0.70.0.djm)
-      spree_core (= 0.70.0.djm)
-    spree_auth (0.70.0.djm)
-      cancan (= 1.6.5)
-      devise (= 1.4.7)
-      spree_core (= 0.70.0.djm)
-    spree_core (0.70.0.djm)
-      activemerchant (= 1.17.0)
-      acts_as_list (= 0.1.4)
-      deface (>= 0.6.1)
-      faker (= 1.0.0)
-      highline (= 1.5.1)
-      jquery-rails (>= 1.0.14)
-      kaminari (>= 0.12.4)
-      meta_search (= 1.1.1)
-      nested_set (= 1.6.8)
-      paperclip (= 2.4.1)
-      rails (= 3.1.1.rc2)
-      rd_find_by_param (= 0.1.1)
-      rd_resource_controller
-      state_machine (= 1.0.1)
-      stringex (= 1.0.3)
-    spree_dash (0.70.0.djm)
-      spree_core (= 0.70.0.djm)
-    spree_promo (0.70.0.djm)
-      spree_auth (= 0.70.0.djm)
-      spree_core (= 0.70.0.djm)
-    spree_sample (0.70.0.djm)
-      spree_core (= 0.70.0.djm)
     sprockets (2.0.1)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -185,6 +188,8 @@ GEM
     sqlite3 (1.3.4)
     state_machine (1.0.1)
     stringex (1.0.3)
+    therubyracer (0.9.4)
+      libv8 (~> 3.3.10)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -210,5 +215,6 @@ DEPENDENCIES
   spree!
   spree_blue_theme!
   sqlite3
+  therubyracer
   turn
   uglifier (>= 1.0.3)
