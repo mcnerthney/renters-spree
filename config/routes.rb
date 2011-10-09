@@ -1,5 +1,7 @@
 Rentstore::Application.routes.draw do
 
+  
+  resources :messages 
   resources :items
   resources :owners
 

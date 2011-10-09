@@ -11,6 +11,7 @@ gem 'therubyracer'
 
 gem 'spree', '0.70.0'
 #:git => 'git://github.com/spree/spree.git'
+#gem 'simple-private-messages' , :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
