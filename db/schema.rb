@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003183505) do
+ActiveRecord::Schema.define(:version => 20111009195612) do
 
   create_table "activators", :force => true do |t|
     t.string   "description"
@@ -146,6 +146,14 @@ ActiveRecord::Schema.define(:version => 20111003183505) do
   add_index "inventory_units", ["shipment_id"], :name => "index_inventory_units_on_shipment_id"
   add_index "inventory_units", ["variant_id"], :name => "index_inventory_units_on_variant_id"
 
+  create_table "items", :force => true do |t|
+    t.string   "description"
+    t.string   "location"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "line_items", :force => true do |t|
     t.integer  "order_id"
     t.integer  "variant_id"
@@ -225,6 +233,13 @@ ActiveRecord::Schema.define(:version => 20111003183505) do
   end
 
   add_index "orders", ["number"], :name => "index_orders_on_number"
+
+  create_table "owners", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "payment_methods", :force => true do |t|
     t.string   "type"
