@@ -1,4 +1,6 @@
 class ItemsController < Spree::BaseController
+  
+  before_filter :set_store
   # GET /items
   # GET /items.json
   def index
@@ -44,7 +46,7 @@ class ItemsController < Spree::BaseController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to store_item_path(@store,@item), notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
@@ -60,7 +62,7 @@ class ItemsController < Spree::BaseController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to store_item_path(@store,@item), notice: 'Item was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -76,8 +78,14 @@ class ItemsController < Spree::BaseController
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to items_url }
+      format.html { redirect_to store_items_path(@store) }
       format.json { head :ok }
     end
   end
+  
+  private
+    def set_store
+      @store = Store.find_by_id(params[:store_id])
+    end
+  
 end

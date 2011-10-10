@@ -12,7 +12,7 @@ resources :stores do
 end
 
 resources :stores
-
+resources :items 
 
 
   # The priority is based upon order of creation:

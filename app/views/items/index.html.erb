@@ -15,13 +15,13 @@
     <td><%= item.description %></td>
     <td><%= item.location %></td>
     <td><%= item.owner_id %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', item_path(item) %></td>
+
+  
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Item', new_item_path %>
+
