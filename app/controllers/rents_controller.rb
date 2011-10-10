@@ -8,7 +8,7 @@ class RentsController < Spree::BaseController
      @items = Item.all
      respond_to do |format|
        format.html # index.html.erb
-       format.json { render json: @messages }
+       format.json { render json: @items.to_json() }
      end
     
   end
@@ -17,7 +17,7 @@ class RentsController < Spree::BaseController
      @item = Item.find(params[:id])
      respond_to do |format|
        format.html # index.html.erb
-       format.json { render json: @messages }
+       format.json { render json: @item }
      end
     
   end

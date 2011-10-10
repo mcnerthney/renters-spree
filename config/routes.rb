@@ -12,7 +12,9 @@ resources :stores do
 end
 
 resources :stores
-resources :rents
+
+  match "rents/:id" => "rents#show", :via => [:get]
+  match "rents" => "rents#index", :via => [:get]
 
 
   # The priority is based upon order of creation:

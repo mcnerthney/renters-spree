@@ -14,8 +14,8 @@
   <tr>
     <td><%= item.description %></td>
     <td><%= item.location %></td>
-    <td><%= item.owner_id %></td>
-    <td><%= link_to 'Show', rent_path(item) %></td>
+    <td><%= item.store.name %></td>
+    <td><%= link_to 'Show', "/rents/" + item.id.to_s %></td>
 
   
   </tr>

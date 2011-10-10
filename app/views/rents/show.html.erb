@@ -12,9 +12,9 @@
 
 <p>
   <b>Owner:</b>
-  <%= @item.owner_id %>
+  <%= @item.store.name %>
 </p>
 
 
 <%= link_to 'RentIt', "#" %> | <%= link_to 'Contact Owner', "#" %> |
-<%= link_to 'Items', rents_path %>
+<%= link_to 'Items', "/rents" %>
