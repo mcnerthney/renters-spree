@@ -104,4 +104,5 @@ class StoresController < Spree::BaseController
       format.json { head :ok }
     end
   end
+    
 end

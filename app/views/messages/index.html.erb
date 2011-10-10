@@ -1,7 +1,12 @@
-<% form_tag delete_selected_user_messages_path(@use_user, :method => :post) do %>
+<div><h2>Message</h2>
+	<%= form_tag delete_selected_messages_path, :method => :post  do %>
+
 	<% if params[:mailbox] == "sent" %>
 			<%= render :partial => "sent" %>
 	<% else %>
 			<%= render :partial => "inbox" %>
-		<% end %>
-<% end %>
+	<% end %>
+	
+	<% end %>
+</form>
+</div>

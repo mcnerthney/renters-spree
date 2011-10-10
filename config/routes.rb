@@ -1,8 +1,18 @@
 Rentstore::Application.routes.draw do
   
-  resources :stores
-  resources :messages 
+
+resources :messages do
+   collection do
+      post :delete_selected
+   end
+end
+
+resources :stores do
   resources :items
+end
+
+resources :stores
+
 
 
   # The priority is based upon order of creation:

@@ -9,7 +9,6 @@
   <b>User:</b>
   <%= @store.user_id %>
 </p>
-
-
+<%= link_to 'New Item', new_stores_item_path(@store) %> |
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>
