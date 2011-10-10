@@ -10,6 +10,9 @@ gem 'sqlite3'
 gem 'therubyracer'
 
 gem 'spree', '0.70.0'
+
+gem 'spree_social', :git => 'git://github.com/spree/spree_social.git'
+
 #:git => 'git://github.com/spree/spree.git'
 #gem 'simple-private-messages' , :git => 'git://github.com/jongilbraith/simple-private-messages.git'
 

@@ -1,9 +1,9 @@
 Rentstore::Application.routes.draw do
-
   
+  resources :stores
   resources :messages 
   resources :items
-  resources :owners
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

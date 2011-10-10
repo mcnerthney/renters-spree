@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111009195612) do
+ActiveRecord::Schema.define(:version => 20111009234443) do
 
   create_table "activators", :force => true do |t|
     t.string   "description"
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(:version => 20111009195612) do
 
   add_index "assets", ["viewable_id"], :name => "index_assets_on_viewable_id"
   add_index "assets", ["viewable_type", "type"], :name => "index_assets_on_viewable_type_and_type"
+
+  create_table "authentication_methods", :force => true do |t|
+    t.string   "environment"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "calculators", :force => true do |t|
     t.string   "type"
@@ -177,6 +184,18 @@ ActiveRecord::Schema.define(:version => 20111009195612) do
   create_table "mail_methods", :force => true do |t|
     t.string   "environment"
     t.boolean  "active",      :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recipient_deleted", :default => false
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -474,6 +493,13 @@ ActiveRecord::Schema.define(:version => 20111009195612) do
     t.integer "country_id"
   end
 
+  create_table "stores", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tax_categories", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -531,6 +557,15 @@ ActiveRecord::Schema.define(:version => 20111009195612) do
     t.string   "environment"
     t.string   "analytics_id"
     t.boolean  "active",       :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

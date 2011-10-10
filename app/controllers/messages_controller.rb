@@ -55,6 +55,10 @@ class MessagesController < Spree::BaseController
   
   private
     def set_user
-      @use_user = User.current
+      if User.current.nil? 
+        redirect_to :login
+      else
+        @use_user = User.current
+      end
     end
 end

@@ -1,4 +1,4 @@
 class Item < ActiveRecord::Base
-  attr_accessible :description
-  belongs_to :owner
+  attr_accessible :description, :location
+  belongs_to :store
 end
