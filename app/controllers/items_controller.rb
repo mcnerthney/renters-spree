@@ -1,5 +1,7 @@
 class ItemsController < Spree::BaseController
   
+  #controller for maintaining items
+  
   before_filter :set_store
   # GET /items
   # GET /items.json
