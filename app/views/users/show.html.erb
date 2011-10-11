@@ -1,0 +1,76 @@
+<h1><%= t(:my_account) %></h1>
+
+<div data-hook="account_summary">
+  <dl id="user-info">
+    <dt><%= t(:email) %></dt>
+    <dd><%= @user.email %></dd>
+  </dl>
+  <p><%= link_to t(:edit), edit_account_path %></p>
+</div>
+
+<div data-hook="account_my_items">
+  <h2><%= "My Rental Items" %> </h2>
+  <% if @items.present? %>
+     <table class="item-summary" style="width:545px;">
+			<tr><td><b>Store Name :</b> <%= @stores.first.name %><td><%= link_to 'Edit', edit_store_path(@stores.first) %></td></tr>
+			  <tr>
+			    <th>Item<br/>Description</th>
+			    <th>Location</th>
+			    <th></th>
+			  </tr>
+
+			<% @items.each do |item| %>
+			  <tr>
+			    <td><%= item.description %></td>
+			    <td><%= item.location %></td>
+			    <td><%= link_to 'Edit', edit_store_item_path(item.store,item) %></td>
+			  </tr>
+			<% end %>
+		<tr><td><%= link_to 'Add Item', new_store_item_path(@stores.first) %></td></tr>
+     </table>
+
+
+  <% else %>
+    <% if @stores.present? %>
+       <%= link_to 'Add Item', new_store_item_path(@stores.first) %>
+    <% else %>
+       <%= link_to "No Items for rents, sign up now!!!",  new_store_path %>
+   <% end %>
+  <% end %>
+  <br />
+
+</div>
+
+<div data-hook="account_my_orders">
+  <h2><%= t(:my_orders) %></h2>
+  <% if @orders.present? %>
+    <table class="order-summary" style="width:545px;">
+      <thead>
+        <tr>
+          <th><%= t(:order_number) %></th>
+          <th><%= t(:order_date) %></th>
+          <th><%= t(:status) %></th>
+          <th><%= t(:payment_state) %></th>
+          <th><%= t(:shipment_state) %></th>
+          <th><%= t(:total) %></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @orders.each do |order| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td><%= link_to order.number, order_url(order) %></td>
+          <td><%= l order.created_at.to_date %></td>
+          <td><%= t(order.state).titleize %></td>
+          <td><%= t("payment_states.#{order.payment_state}") if order.payment_state %></td>
+          <td><%= t("shipment_states.#{order.shipment_state}") if order.shipment_state %></td>
+          <td><%= number_to_currency order.total %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%= t(:you_have_no_orders_yet) %></p>
+  <% end %>
+  <br />
+
+</div>
