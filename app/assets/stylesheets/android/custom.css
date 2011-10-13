@@ -1,20 +1,19 @@
 .container {
-  width: 300px;
+  width: 310px;
 
 }
 
 body {
-  background: #cff;
-   padding: 5px;
+
 }
 
 header {
+
   padding-top: 5px;
 }
 
 header img {
   padding: 1em;
-  background: #fff;
 }
 
 section {
@@ -61,7 +60,6 @@ header nav {
 
 nav {
   float: center;
-  background: white;
   padding: 3px;
   white-space: nowrap;
 }
@@ -72,10 +70,13 @@ nav ul {
 }
 
 nav ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 0.2em 0;
-}
+	margin-left: 0;
+		margin-bottom: 0;
+		padding: 5px 15px 5px;
+		list-style: none;
+		display: inline;
+  background: #cff;
+ }
 
 nav ul li a {
   padding: 0 5px;
@@ -87,7 +88,7 @@ nav ul li a:visited {
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Sign up button */
