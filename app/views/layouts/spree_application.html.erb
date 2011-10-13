@@ -27,12 +27,18 @@
       </div>
     </div>
 
-    <div id="footer" data-hook>
-      <div id="footer-left" data-hook>
-        <p>Built by <%= link_to 'Soft LLC', 'http://softllc.com/' %></p>
-      </div>
-      <div id="footer-right" data-hook></div>
-    </div>
+ 	<div id="footer" class="cantainer">
+	<div align="center">
+		<nav class="round">
+			<ul>
+				<li> <%= link_to "About", '#'  %></li>
+				<li> <%= link_to "Contact", '#' %></li>	
+	         </ul>
+	</nav>
+
     <%= render 'shared/google_analytics' %>
   </body>
+	<%= request.user_agent  if Rails.env.development? %> 
+	<%= debug(params) if Rails.env.development? %>
+
 </html>

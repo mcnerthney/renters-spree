@@ -9,6 +9,12 @@
     <th></th>
     <th></th>
   </tr>
+  <% if @is_iphone_request? %>
+  It's an iphone
+	
+  <% else %>
+  <%= request.user_agent %>
+  <% end %>
 
 <% @items.each do |item| %>
   <tr>

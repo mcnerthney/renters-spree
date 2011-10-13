@@ -18,6 +18,10 @@ resources :stores
 
   root :to => 'rents#index'
 
+  match "a_item/:id" => "a_rents#show", :via => [:get]
+  match "a_item"     => "a_rents#index", :via => [:get]
+  match "a"          => "a_rents#index"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
