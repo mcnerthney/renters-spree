@@ -10,12 +10,15 @@
   </tr>
 
 <% @stores.each do |store| %>
-  <tr>
-    <td><%= store.name %></td>
-    <td><%= store.user_id %></td>
+  <tr><td>
+	<% if store.active? %>
+	      <%= store.name %>
+	<% else %>
+	     <del><%= store.name %></del>
+	<% end %>
+</td>
     <td><%= link_to 'Show', store %></td>
     <td><%= link_to 'Edit', edit_store_path(store) %></td>
-    <td><%= link_to 'Destroy', store, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

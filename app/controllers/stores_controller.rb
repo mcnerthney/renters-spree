@@ -41,7 +41,6 @@ class StoresController < Spree::BaseController
        redirect_to :action => :login
      else
       @store = Store.new
-      @store.user_id = @user.id
       
       respond_to do |format|
         format.html # new.html.erb
@@ -64,6 +63,7 @@ class StoresController < Spree::BaseController
      else
       @store = Store.new(params[:store])
       @store.user_id = @user.id
+      @store.activate
     
       respond_to do |format|
         if @store.save
@@ -97,7 +97,8 @@ class StoresController < Spree::BaseController
   # DELETE /stores/1.json
   def destroy
     @store = Store.find_by_id_and_user_id(params[:id], User.current.id)
-    @store.destroy
+    @store.deactivate
+    @store.save
 
     respond_to do |format|
       format.html { redirect_to stores_url }

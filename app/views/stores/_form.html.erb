@@ -10,12 +10,20 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+<br>
    <div class="actions">
     <%= f.submit %>
   </div>
+
+<% end %>
+<%= form_for @store, :method => :activate do |f| %>
+<div class="actions">
+ <div class="actions">
+    <input name="commit" type="submit" value="Activate" />
+  </div>
+</div>
 <% end %>

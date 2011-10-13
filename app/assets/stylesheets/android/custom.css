@@ -7,14 +7,6 @@ body {
 
 }
 
-header {
-
-  padding-top: 5px;
-}
-
-header img {
-  padding: 1em;
-}
 
 section {
   margin-top: 1em;
@@ -43,9 +35,13 @@ a:visited {
   color: #069;
 }
 
+header img {
+  padding: 1em;
+}
+
+
 header {
-  text-align: center;
-  margin-top: 2px;
+  padding-top: 5px;
   width: 300px;
   margin-left: auto;
   margin-right: auto;
@@ -59,8 +55,8 @@ header nav {
 /* Navigation */
 
 nav {
-  float: center;
-  padding: 3px;
+  float: right;
+  padding: 10px;
   white-space: nowrap;
 }
 
@@ -71,16 +67,20 @@ nav ul {
 
 nav ul li {
 	margin-left: 0;
-		margin-bottom: 0;
-		padding: 5px 15px 5px;
-		list-style: none;
-		display: inline;
-  background: #cff;
+    margin-bottom: 0;
+    padding: 5px 15px 5px;
+    list-style: none;
+	display: inline;
+
  }
 
 nav ul li a {
   padding: 0 5px;
   font-weight: bold;
+}
+
+nav ul li form button {
+	width: 75px;
 }
 
 nav ul li a:visited {
@@ -89,6 +89,10 @@ nav ul li a:visited {
 
 nav ul li a:hover {
   text-decoration: none;
+}
+
+.header_right  {
+  float: right;
 }
 
 /* Sign up button */

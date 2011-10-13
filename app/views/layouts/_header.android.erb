@@ -1,9 +1,24 @@
 <header>
-	<nav >
-		<ul>
-			<li class="round"><%= link_to "Home" , rents_path %></li>
-            <li class="round"><%= link_to "Map" , "/!map" %></li>
-			<li class="round"><%= link_to "Search", "#"  %></li>
-		</ul>
-	</nav>
+	<table>
+		<tr>
+<td >  <class="header-left">	<form accept-charset="UTF-8" action="/rents.android" method="get" style="margin:0;padding:0;display:inline">
+			<button  type="submit" value="Home" style="float:left;width:65px;heigth:65px;"  >Home</button>
+		  </form>
+	</td>
+<td  ><center>
+	   <form   accept-charset="UTF-8" action="/rents.android" method="get" style="margin:0;padding:0;display:inline">
+		<button type="submit" style="width:65px;heigth:65px;" value="Search" >Search</button>
+	</form><center>
+	</td>
+	<td  >
+		   <form  accept-charset="UTF-8" action="/com_renters_map:" method="get" style="margin:0;padding:0;display:inline">
+			<button type="submit" value="Map" style="float:right;width:65px;heigth:65px;" >Map</button>
+		</form>
+		</td>
+	
+	</tr>
+</table>
 </header>
+
+
+ 

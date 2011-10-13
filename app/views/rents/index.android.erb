@@ -1,10 +1,7 @@
-<h2>Available for Rent</h2>
-<%= link_to "Map" , "!map" %>
 <table>
   <tr>
-    <th>Description</th>
+    <th><h1>Available for Rent</h1></th>
    </tr>
-
 <% @items.each do |item| %>
   <tr>
      <td><%= link_to item.description , "/rents/" + item.id.to_s %></td>

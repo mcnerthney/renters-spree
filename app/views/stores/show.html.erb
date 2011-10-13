@@ -2,7 +2,11 @@
 
 <p>
   <b>Name:</b>
-  <%= @store.name %>
+<% if @store.active? %>
+      <%= @store.name %>
+<% else %>
+     <del><%= @store.name %></del>
+<% end %>
 </p>
 
 <p>
