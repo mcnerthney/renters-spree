@@ -1,33 +1,26 @@
-<h1>Stuff you want to rent</h1>
 <table>
   <tr>
-    <th>Description</th>
-    <th>Location</th>
-    <th>Owner</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-   <% if @is_android_request %>
-  It's an android
-	
-  <% else %>
-  <%= request.user_agent %>
-  <% end %>
-
-
+    <th><h1>For Rent</h1></th>
+   </tr>
 <% @items.each do |item| %>
   <tr>
-    <td><%= item.description %></td>
-    <td><%= item.location %></td>
-    <td><%= item.store.name %></td>
-    <td><%= link_to 'Show', "/rents/" + item.id.to_s %></td>
-
-  
+     <td><%= link_to item.description , "/rents/" + item.id.to_s %></td>
   </tr>
 <% end %>
-</table>
+<tr>
+<td>
+<form accept-charset="UTF-8" method="get" style="margin:0;padding:0;display:inline">
+	 <input name="s" type="hidden" value="newitem" />
+			<button  type="submit" value="newitem" style="float:left;"  >
+<% if @user.present? && @user.stores.present? %>
+My Items
+<% else %>
+Add Item
+<% end %>
+</button>
+</form></td>
+</tr>
 
-<br />
+</table>
 
 

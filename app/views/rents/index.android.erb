@@ -1,12 +1,26 @@
 <table>
   <tr>
-    <th><h1>Available for Rent</h1></th>
+    <th><h1>For Rent</h1></th>
    </tr>
 <% @items.each do |item| %>
   <tr>
      <td><%= link_to item.description , "/rents/" + item.id.to_s %></td>
   </tr>
 <% end %>
+<tr>
+<td>
+<form accept-charset="UTF-8" method="get" style="margin:0;padding:0;display:inline">
+	 <input name="s" type="hidden" value="newitem" />
+			<button  type="submit" value="newitem" style="float:left;"  >
+<% if @user.present? && @user.stores.present? %>
+My Items
+<% else %>
+Add Item
+<% end %>
+</button>
+</form></td>
+</tr>
+
 </table>
 
 

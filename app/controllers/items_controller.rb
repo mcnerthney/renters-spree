@@ -43,6 +43,7 @@ class ItemsController < Spree::BaseController
     else
     
     @item = Item.new
+    @item.location = "Portland, OR"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -71,7 +72,7 @@ end
     @item.store = @store
     respond_to do |format|
       if @item.save
-        format.html { redirect_to store_item_path(@store,@item), notice: 'Item was successfully created.' }
+        format.html { redirect_to store_items_path(@store), notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }

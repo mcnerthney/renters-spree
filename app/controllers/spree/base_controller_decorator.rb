@@ -23,6 +23,17 @@ Spree::BaseController.class_eval do
           redirect_to login_path and return
         end
       end
+          
+      format.android do
+        if current_user
+          flash.now[:error] = I18n.t(:authorization_failure)
+          render 'shared/unauthorized', :layout => 'spree_application'
+        else
+          store_location
+          redirect_to login_path and return
+        end
+      end
+      
       format.xml do
         request_http_basic_authentication 'Web Password'
       end
