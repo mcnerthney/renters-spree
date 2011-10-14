@@ -12,6 +12,7 @@ class ItemsController < Spree::BaseController
     else
       @items = @store.items
       respond_to do |format|
+        format.android
         format.html # index.html.erb
         format.json { render json: @items }
       end
@@ -27,6 +28,7 @@ class ItemsController < Spree::BaseController
       redirect_to root_path
     else
       respond_to do |format|
+        format.android # show.html.erb
         format.html # show.html.erb
         format.json { render json: @item }
       end
@@ -46,6 +48,7 @@ class ItemsController < Spree::BaseController
     @item.location = "Portland, OR"
 
     respond_to do |format|
+      format.android # new.html.erb
       format.html # new.html.erb
       format.json { render json: @item }
     end
@@ -72,10 +75,12 @@ end
     @item.store = @store
     respond_to do |format|
       if @item.save
-        format.html { redirect_to store_items_path(@store), notice: 'Item was successfully created.' }
-        format.json { render json: @item, status: :created, location: @item }
+        format.android { redirect_to store_items_path(@store), notice: 'Item was successfully created.' }
+        format.html    { redirect_to store_items_path(@store), notice: 'Item was successfully created.' }
+        format.json    { render json: @item, status: :created, location: @item }
       else
-        format.html { render action: "new" }
+        format.html {  render action: "new" }
+        format.android {  render action: "new" }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
@@ -94,10 +99,12 @@ end
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
+        format.android { redirect_to store_item_path(@store,@item), notice: 'Item was successfully updated.' }
         format.html { redirect_to store_item_path(@store,@item), notice: 'Item was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
+        format.android { render action: "edit"}
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
@@ -115,8 +122,9 @@ end
       @item.destroy
 
       respond_to do |format|
-        format.html { redirect_to store_items_path(@store) }
-        format.json { head :ok }
+        format.android { redirect_to store_items_path(@store) }
+        format.html    { redirect_to store_items_path(@store) }
+        format.json    { head :ok }
       end
     end
   end

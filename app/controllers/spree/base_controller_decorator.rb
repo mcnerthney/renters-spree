@@ -54,6 +54,17 @@ Spree::BaseController.class_eval do
 
   def set_current_user
     User.current = current_user
+    set_android_format
   end
+  
+  def set_android_format
+     if is_android_request?
+       request.format = :android
+     end
+   end
+   def is_android_request?
+         true #request.user_agent =~ /.*Linux.*Android.*/
+   end
+  
 
 end
