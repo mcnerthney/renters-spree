@@ -5,7 +5,7 @@ class UserSessionsController < Devise::SessionsController
   
   before_filter :set_android_format
 
-  include Spree::CurrentOrder
+  # include Spree::CurrentOrder
 
   after_filter :associate_user, :only => :create
 
@@ -24,7 +24,7 @@ class UserSessionsController < Devise::SessionsController
       respond_to do |format|
         format.android {
           flash[:notice] = I18n.t("logged_in_succesfully")
-          redirect_back_or_default(rents_path)
+          redirect_to rents_path 
         }
         format.html {
           flash[:notice] = I18n.t("logged_in_succesfully")
@@ -44,12 +44,14 @@ class UserSessionsController < Devise::SessionsController
   def destroy
     session.clear
 
-    if is_android_request?
-      redirect_to rents_path
-      return
-    end
-      
-    super
+    signed_in = signed_in?(resource_name)
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+    set_flash_message :notice, :signed_out if signed_in
+
+    # We actually need to hardcode this, as Rails default responder doesn't
+    # support returning empty response on GET request
+    redirect_to rents_path 
+    
 
   end
 

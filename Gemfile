@@ -66,4 +66,5 @@ group :test do
   gem 'turn', :require => false
 end
 
+gem 'devise', :git => 'git@github.com:dansoftllc/devise.git'
 gem 'spree_blue_theme', :git => 'git://github.com/spree/spree_blue_theme.git'
