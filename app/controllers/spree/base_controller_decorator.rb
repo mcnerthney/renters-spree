@@ -63,7 +63,7 @@ Spree::BaseController.class_eval do
      end
    end
    def is_android_request?
-         true #request.user_agent =~ /.*Linux.*Android.*/
+       request.user_agent =~ /.*Linux.*Android.*/
    end
   
 
