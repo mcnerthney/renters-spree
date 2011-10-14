@@ -5,6 +5,9 @@ class RentsController < Spree::BaseController
   def index
     set_user
     if ( params[:s] == "newitem" || params[:s] == "newitem.android" )
+      if ( params[:s]  == "newitem.android")
+         request.format = :android
+      end
       if @user.nil? 
          unauthorized
        else

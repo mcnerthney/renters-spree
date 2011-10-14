@@ -1,6 +1,7 @@
 class UserPasswordsController < Devise::PasswordsController
   include SpreeBase
   helper :users, 'spree/base'
+  before_filter :set_android_format
 
   def new
     super
@@ -32,4 +33,16 @@ class UserPasswordsController < Devise::PasswordsController
   def update
     super
   end
+  
+  def set_android_format
+      if is_android_request?
+        request.format = :android
+      end
+  end
+    
+  def is_android_request?
+      request.user_agent =~ /.*Linux.*Android.*/
+  end
+  
+  
 end

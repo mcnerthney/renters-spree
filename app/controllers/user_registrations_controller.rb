@@ -5,6 +5,7 @@ class UserRegistrationsController < Devise::RegistrationsController
   ssl_required
   after_filter :associate_user, :only => :create
   before_filter :check_permissions, :only => [:edit, :update]
+  before_filter :set_android_format
   skip_before_filter :require_no_authentication
 
   # GET /resource/sign_up
@@ -61,5 +62,16 @@ class UserRegistrationsController < Devise::RegistrationsController
     current_order.associate_user!(current_user)
     session[:guest_token] = nil
   end
+  
+  def set_android_format
+      if is_android_request?
+        request.format = :android
+      end
+  end
+    
+  def is_android_request?
+      request.user_agent =~ /.*Linux.*Android.*/
+  end
+  
 
 end

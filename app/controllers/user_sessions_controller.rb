@@ -1,6 +1,9 @@
 class UserSessionsController < Devise::SessionsController
   include SpreeBase
   helper :users, 'spree/base'
+  respond_to :html, :android
+  
+  before_filter :set_android_format
 
   include Spree::CurrentOrder
 
@@ -19,9 +22,13 @@ class UserSessionsController < Devise::SessionsController
 
     if user_signed_in?
       respond_to do |format|
+        format.android {
+          flash[:notice] = I18n.t("logged_in_succesfully")
+          redirect_back_or_default(rents_path)
+        }
         format.html {
           flash[:notice] = I18n.t("logged_in_succesfully")
-          redirect_back_or_default(products_path)
+          redirect_back_or_default(rents_path)
         }
         format.js {
           user = resource.record
@@ -36,7 +43,14 @@ class UserSessionsController < Devise::SessionsController
 
   def destroy
     session.clear
+
+    if is_android_request?
+      redirect_to rents_path
+      return
+    end
+      
     super
+
   end
 
   def nav_bar
@@ -54,5 +68,17 @@ class UserSessionsController < Devise::SessionsController
   def accurate_title
     I18n.t(:log_in)
   end
+
+
+  def set_android_format
+      if is_android_request?
+        request.format = :android
+      end
+  end
+    
+  def is_android_request?
+      request.user_agent =~ /.*Linux.*Android.*/
+  end
+
 
 end
