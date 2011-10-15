@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Description:</b>
+
+<h2> <%= @item.title %></h2>
+</p>
+
+<p>
   <%= @item.description %>
 </p>
 
@@ -10,11 +14,5 @@
   <%= @item.location %>
 </p>
 
-<p>
-  <b>Owner:</b>
-  <%= @item.store.name %>
-</p>
 
-
-<%= link_to 'RentIt', "#" %> | <%= link_to 'Contact Owner', "#" %> |
-<%= link_to 'Items', "/rents" %>
+<%= link_to 'Contact Owner', "#" %>

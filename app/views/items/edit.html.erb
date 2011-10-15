@@ -1,4 +1,4 @@
-<h1>Editing item</h1>
+<h1>Edit rental</h1>
 
 <%= form_for @item, :url => store_item_path(@store,@item) do |f| %>
 <% if @item.errors.any? %>
@@ -23,7 +23,7 @@
 </div>
 <div class="field">
   <%= f.label :description %><br />
-  <%= f.text_field :description %>
+  <%= f.text_area :description, :cols => 120, :rows => 20  %>
 </div>
 <div class="field">
  <%= f.label :active %>
@@ -35,7 +35,3 @@
 </div>
 
 <% end %>
-
-<%= link_to 'Destroy', store_item_path(params[:store_id],@item), confirm: 'Are you sure?', method: :delete %></td>
-<%= link_to 'Show', store_item_path(params[:store_id],@item) %> |
-<%= link_to 'Items', store_items_path(params[:store_id]) %>

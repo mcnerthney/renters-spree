@@ -1,4 +1,4 @@
-<h2>Add an item owned by <b><%= link_to "My Account", account_path %></b></h2>
+<h2>Add Rental</h2>
 <%= form_for @item, :url => store_items_path(@store) do |f| %>
 <% if @item.errors.any? %>
   <div id="error_explanation">
@@ -21,7 +21,7 @@
 </div>
 <div class="field">
   <%= f.label :description %><br />
-  <%= f.text_field :description %>
+  <%= f.text_area :description, :cols => 120, :rows => 20  %>
 </div>
 
 <div class="actions">

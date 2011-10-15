@@ -102,8 +102,8 @@ end
  
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.android { redirect_to store_item_path(@store,@item), notice: 'Item was successfully updated.' }
-        format.html { redirect_to store_item_path(@store,@item), notice: 'Item was successfully updated.' }
+        format.android { redirect_to store_items_path(@store), notice: 'Item was successfully updated.' }
+        format.html { redirect_to store_items_path(@store), notice: 'Item was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
