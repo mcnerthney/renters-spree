@@ -26,7 +26,7 @@ class RentsController < Spree::BaseController
        end
     else
     
-     @items = Item.all
+     @items = Item.find_all_by_active(true);
        respond_to do |format|
          format.html # index.html.erb
          format.json { render json: @items.to_json() }
