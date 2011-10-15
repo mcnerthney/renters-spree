@@ -12,8 +12,15 @@
  
 <% @items.each do |item| %>
   <tr>
-     <td><%= link_to item.description , edit_store_item_path(@store,item) %></td>
+	<% if item.active? %>
+     <td><%= link_to item.title , edit_store_item_path(@store,item) %></td>
+	<% else %>
+	      <td>  <del>  <%= link_to item.title , edit_store_item_path(@store,item) %>  <del>  </td>
+	<% end %>
 
+	<% if item.active? %>
+	  </del>
+	<% end %>  
   </tr>
 <% end %>
 <% end %>

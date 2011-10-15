@@ -4,7 +4,7 @@
    </tr>
 <% @items.each do |item| %>
   <tr>
-     <td><%= link_to item.description , "/rents/" + item.id.to_s %></td>
+     <td><%= link_to item.title , "/rents/" + item.id.to_s %></td>
   </tr>
 <% end %>
 <tr>

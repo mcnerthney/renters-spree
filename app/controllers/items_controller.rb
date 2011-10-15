@@ -46,7 +46,8 @@ class ItemsController < Spree::BaseController
     
     @item = Item.new
     @item.location = "Portland, OR"
-
+    @item.active   = true
+    
     respond_to do |format|
       format.android # new.html.erb
       format.html # new.html.erb
@@ -72,6 +73,8 @@ end
     else
     
     @item = Item.new(params[:item])
+    @item.active   = true
+    
     @item.store = @store
     respond_to do |format|
       if @item.save
@@ -96,7 +99,7 @@ end
     else
     
     @item = Item.find(params[:id])
-
+ 
     respond_to do |format|
       if @item.update_attributes(params[:item])
         format.android { redirect_to store_item_path(@store,@item), notice: 'Item was successfully updated.' }
