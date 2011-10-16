@@ -7,4 +7,16 @@ class Item < ActiveRecord::Base
   validates :description, :presence => true
   validates :location, :presence => true
   
+  def deactivate 
+     self.active = false
+   end
+   
+   def activate 
+     self.active = true
+   end
+        
+   def active?
+     self.active
+   end
+  
 end

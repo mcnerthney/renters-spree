@@ -2,7 +2,8 @@
 
 <p>
 
-<h2> <%= @item.title %></h2>
+<h2> <%= @item.title %>
+</h2>
 </p>
 
 <p>
@@ -15,4 +16,9 @@
 </p>
 
 
+
+<% if @item.store.user == @user %>
+<%= link_to "Edit" , edit_store_item_path(@item.store,@item) %>
+<% else %>
 <%= link_to 'Contact Owner', "#" %>
+<% end %>

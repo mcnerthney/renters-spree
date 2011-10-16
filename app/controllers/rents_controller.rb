@@ -1,13 +1,9 @@
 class RentsController < Spree::BaseController
 
-  #controller for renting items
+  before_filter :set_user
   
   def index
-    set_user
-    if ( params[:s] == "newitem" || params[:s] == "newitem.android" )
-      if ( params[:s]  == "newitem.android")
-         request.format = :android
-      end
+    if ( params[:s] == "newitem"  )
       if @user.nil? 
          unauthorized
        else
@@ -21,7 +17,7 @@ class RentsController < Spree::BaseController
               redirect_to :show
             end
          else
-           redirect_to store_items_path(@user.stores.first)
+           redirect_to new_store_item_path(@user.stores.first)
          end
        end
     else
