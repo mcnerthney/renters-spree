@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111015211305) do
+ActiveRecord::Schema.define(:version => 20111016204141) do
 
   create_table "activators", :force => true do |t|
     t.string   "description"
@@ -134,6 +134,12 @@ ActiveRecord::Schema.define(:version => 20111015211305) do
     t.string   "environment", :default => "development"
     t.string   "server",      :default => "test"
     t.boolean  "test_mode",   :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interests", :force => true do |t|
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

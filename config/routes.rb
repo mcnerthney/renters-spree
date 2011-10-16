@@ -16,10 +16,10 @@ resources :stores
   match "rents/:id" => "rents#show", :via => [:get]
   match "rents" => "rents#index", :via => [:get]
 
-  root :to => 'rents#index'
+   root :to => "rents#index"
 
-  match "survey"          => "servey#show"
-
+  match "survey"        => "servey#show"
+resources :interests
   match "a_item/:id" => "a_rents#show", :via => [:get]
   match "a_item"     => "a_rents#index", :via => [:get]
   match "a"          => "a_rents#index"

@@ -20,7 +20,7 @@ Spree::BaseController.class_eval do
           render 'shared/unauthorized', :layout => 'spree_application'
         else
           store_location
-          redirect_to login_path and return
+          redirect_to new_interest_path and return
         end
       end
           
@@ -30,7 +30,7 @@ Spree::BaseController.class_eval do
           render 'shared/unauthorized', :layout => 'spree_application'
         else
           store_location
-          redirect_to login_path and return
+          redirect_to new_interest_path and return
         end
       end
       
@@ -59,7 +59,7 @@ Spree::BaseController.class_eval do
   
   def set_android_format
      if is_android_request?
-       request.format = :android
+       #request.format = :android
      end
    end
    def is_android_request?

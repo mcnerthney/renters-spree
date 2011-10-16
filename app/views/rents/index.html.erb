@@ -9,24 +9,6 @@
 <% end %>
 <tr><td><div id="map_canvas" style="height:600px;width:940px">My Div</div>
 	</tr></td>
-<tr>
-<td>
-<% if @user.present? && @user.stores.present? %>
-<%= form_tag store_items_path(@user.stores.first), :method => "get" %>
-<button  type="submit" value="submit" style="float:left;"  >
-My Rentals
-</button>
-</form>
-<% else %>
-<form accept-charset="UTF-8" method="get" style="margin:0;padding:0;display:inline">
-	 <input name="s" type="hidden" value="newitem" />
-			<button  type="submit" value="newitem" style="float:left;"  >
-Add Rental
-</button>
-</form>
-<% end %>
-</td>
-</tr>
 
 </table>
 
