@@ -7,6 +7,8 @@
      <td><%= link_to item.title , "/rents/" + item.id.to_s %></td>
   </tr>
 <% end %>
+<tr><td><div id="map_canvas" style="height:600px;width:940px">My Div</div>
+	</tr></td>
 <tr>
 <td>
 <% if @user.present? && @user.stores.present? %>
@@ -28,4 +30,22 @@ Add Rental
 
 </table>
 
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=true"></script>
+<script>(function($){
+ $(document).ready(function(){
+	alert("observed");
+	// do stuff when div is ready
+	var latlng = new google.maps.LatLng( 45.60, -122.60 );
+	var myOptions = {
+	  zoom: 8,
+	  center: latlng,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById("map_canvas"),
+	    myOptions);
+
+	
+ });
+})(jQuery);
+</script>
 
