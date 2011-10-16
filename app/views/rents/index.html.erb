@@ -33,7 +33,7 @@ Add Rental
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=true"></script>
 <script>(function($){
  $(document).ready(function(){
-	alert("observed");
+
 	// do stuff when div is ready
 	var latlng = new google.maps.LatLng( 45.60, -122.60 );
 	var myOptions = {
@@ -51,12 +51,6 @@ Add Rental
 		    mapTypeId: google.maps.MapTypeId.ROADMAP,
 		  }
 
-
-		var myOptions = {
-		  zoom: 4,
-		  center: myLatlng,
-		  mapTypeId: google.maps.MapTypeId.ROADMAP
-		}
 
 
 		var contentString = '<div id="content">'+
