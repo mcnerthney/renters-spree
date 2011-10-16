@@ -18,6 +18,8 @@ resources :stores
 
   root :to => 'rents#index'
 
+  match "survey"          => "servey#show"
+
   match "a_item/:id" => "a_rents#show", :via => [:get]
   match "a_item"     => "a_rents#index", :via => [:get]
   match "a"          => "a_rents#index"

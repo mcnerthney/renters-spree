@@ -1,6 +1,10 @@
 <li id="search-bar" data-hook>
   <%= render 'shared/search' %>
 </li>
+<li><form accept-charset="UTF-8" action="/survey" style="margin:0;padding:0;display:inline">
+	 <input name="s" type="hidden" value="newitem" />
+			<button  type="submit" value="newitem" style="float:left;"  >Take Survey</button>
+</li></form>
 <% if store_menu? %>
   <%= render 'shared/store_menu' %>
 <% end %>
