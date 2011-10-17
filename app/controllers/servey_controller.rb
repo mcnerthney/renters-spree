@@ -17,7 +17,6 @@ class ServeyController < Spree::BaseController
           redirect_to root_path
         end
       end
-      end
 
     end
 
