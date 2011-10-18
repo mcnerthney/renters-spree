@@ -1,18 +1,51 @@
-<table>
-  <tr>
-    <th><h1>For Rent</h1></th>
-   </tr>
-<% @items.each do |item| %>
-  <tr>
-     <td><%= link_to item.title , "/rents/" + item.id.to_s %></td>
-  </tr>
-<% end %>
-<tr><td><div id="map_canvas" style="height:600px;width:940px">My Div</div>
-	</tr></td>
+<script type="text/javascript">
 
-</table>
+	function overListItem() {
+	    //if ( in == false ) {
+	       in = true;
+	    //}
+	}
+	function outListItem() {
+		in = false;
+	}
+	
+</script>
+
+
+<% content_for :sidebar do %>
+  <div data-hook="homepage_sidebar_navigation">
+    <table>
+	<tr>
+	    <th><form accept-charset="UTF-8" method="get" style="margin:0;padding:0;display:inline">
+			 <input name="s" type="hidden" value="newitem" />
+					<button  type="submit" value="newitem" style="float:left;"  >
+		Add Rental
+		</button>
+		</form>
+		</th>
+	  </tr>
+	<% @items.each do |item| %>
+	  <tr>
+	     <td>
+	      <div id="homepage_item_title" onmouseover="selectMapItem()"> 
+	        <%= link_to item.title , "/rents/" + item.id.to_s, {"onmouseover" => "mInfowindow.open(mMap,mMarker);" } %>
+	      </div>
+	     </td>
+	     </tr>
+
+	     
+	<% end %>
+	</table>
+ </div>
+<% end %>
+<div data-hook="homepage_map">
+	<div id="map_canvas" style="height:600px" />
+</div>
+
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=true"></script>
+
+ 
 <script>(function($){
  $(document).ready(function(){
 
@@ -23,7 +56,7 @@
 	  center: latlng,
 	  mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	var map = new google.maps.Map(document.getElementById("map_canvas"),
+	mMap = new google.maps.Map(document.getElementById("map_canvas"),
 	    myOptions);
 
 		var myLatlng = new google.maps.LatLng( 45.60, -122.60 );
@@ -61,12 +94,12 @@
 
 		var marker = new google.maps.Marker({
 		    position: myLatlng,
-		    map: map,
+		    map: mMap,
 		    title:"Uluru (Ayers Rock)"
 		});
 		
 		// To add the marker to the map, call setMap();
-		marker.setMap(map);	
+		marker.setMap(mMap);	
 		
 		
 		var myLatlng = new google.maps.LatLng( 45.58, -122.59 );
@@ -90,27 +123,28 @@
 		    '</div>'+
 		    '</div>';
 
-		var infowindow = new google.maps.InfoWindow({
+		mInfowindow = new google.maps.InfoWindow({
 		    content: contentString
 		});
 
-		var marker = new google.maps.Marker({
+		mMarker = new google.maps.Marker({
 		    position: myLatlng,
-		    map: map,
+		    map: mMap,
 		    title:"Uluru (Ayers Rock)"
 		});
 		
 		// To add the marker to the map, call setMap();
-		marker.setMap(map);	
+		mMarker.setMap(mMap);	
 		
 		
 		
 
 		google.maps.event.addListener(marker, 'click', function() {
-		  infowindow.open(map,marker);
+		  mInfowindow.open(map,marker);
 		});		
 		
  });
 })(jQuery);
 </script>
+</div>
 

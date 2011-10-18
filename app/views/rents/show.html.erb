@@ -20,5 +20,5 @@
 <% if @item.store.user == @user %>
 <%= link_to "Edit" , edit_store_item_path(@item.store,@item) %>
 <% else %>
-<%= link_to 'Contact Owner', "#" %>
+<%= link_to 'Contact Owner', new_interest_path %>
 <% end %>
