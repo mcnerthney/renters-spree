@@ -12,7 +12,10 @@
     </ul>
   </div>
 <% end %>
-
+<div class="field">
+ <%= f.label :active %>
+  <%= f.check_box :active %>
+</div>
 <div class="field">
   <%= f.label :location %><br />
   <%= f.text_field :location %>
@@ -25,9 +28,35 @@
   <%= f.label :description %><br />
   <%= f.text_area :description, :cols => 132, :rows => 20  %>
 </div>
-<div class="field">
- <%= f.label :active %>
-  <%= f.check_box :active %>
+
+<div class="invited">
+  <table>
+  <tr>
+  <th>Item's invitation list</th><th></th><th></th><th>View Listing</th><th>View Title<br/>Description</th><th>View Address</th><th>View Phone</th><th>View Hours</th><th>View Rate</th><th>View Availability</th>
+  </tr>
+  <tr>
+  <td>Everyone</td>  
+  </tr>
+  <tr>
+  <td>All Renters</td>  
+  </tr>
+  <tr>
+  <td>Renters</td><td>RS User Info</td>  
+  </tr>
+  <tr>
+  <td>All Facebook friends</td><td>FB Info</td>
+  </tr>
+  <tr>
+  <td>Facebook friend</td><td>FB Info</td><td>FB Friend Info</td>
+  </tr>
+  <td>All Google+ contacts</td><td>GP Info</td>  
+  <tr>
+  <td>Google+ circle</td><td>GP Group Info</td>  
+  </tr>
+  <td>Google+ contact</td><td>GP Info</td><td>GP Contact Info</td>  
+  <tr>
+ </tr>
+  </table>
 </div>
 
 <div class="actions">
